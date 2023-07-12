@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Buy = () => {
+const Buy = ({ type }) => {
     return (
         <div className='buy'>
+
+            <h1>{type}</h1>
+
             <div>
                 Buy page
             </div>
