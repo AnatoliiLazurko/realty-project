@@ -3,13 +3,11 @@ import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 const initialValues = {
-    fullname: '',
     email: '',
     message: ''
 };
 
 const MESSAGE_SCHEMA = Yup.object().shape({
-    fullname: Yup.string().required(),
     email: Yup.string().email().required(),
     message: Yup.string().required(),
 
@@ -23,13 +21,8 @@ const FooterForm = () => {
                 validationSchema={MESSAGE_SCHEMA}
             >
                 <Form>
-                    {/* <h1>Leave your message here</h1> */}
+                    <h1>Leave your message here</h1>
 
-                    <div>
-                        <p className='label'>Full name</p>
-                        <Field className='input' name='fullname' />
-                        <ErrorMessage name='fullname' component="p" className='error'/>
-                    </div>
                     <div>
                         <p className='label'>Email</p>
                         <Field className='input' name='email' />

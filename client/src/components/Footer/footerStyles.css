@@ -66,12 +66,15 @@ footer .company-name span {
 }
 
 .footer-nav .nav h3 {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(201, 201, 201);
+    border-top: 1px solid rgb(201, 201, 201);
     padding-bottom: 5px;
+    padding-top: 5px;
     color: #333;
     margin-top: 0;
     margin-bottom: -10px;
     opacity: 0.9;
+    text-align: center;
 }
 
 .footer-nav .nav-rent {
@@ -158,6 +161,7 @@ footer .company-name span {
     font-size: 17px;
     border: 1px solid grey;
     padding: 5px 10px;
+    resize: none;
 }
 
 .footer-form .input-field:focus {

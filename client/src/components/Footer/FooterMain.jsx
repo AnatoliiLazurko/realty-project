@@ -7,7 +7,7 @@ const FooterMain = () => {
         <div className='footer-main'>
             <div className='footer-nav'>
                 <div className='column nav'>
-                    <h3>Buy</h3>
+                    <h3>B u y</h3>
                     <ul>
                         <li><Link to="/buy/house">HOUSE</Link></li>
                         <li><Link to="/buy/new-house">NEW HOUSE</Link></li>
@@ -19,7 +19,7 @@ const FooterMain = () => {
                     </ul>
                 </div>
                 <div className='column nav nav-rent'>
-                    <h3>Rent</h3>
+                    <h3>R e n t</h3>
                     <ul>
                         <li><Link to="/rent/house">HOUSE</Link></li>
                         <li><Link to="/rent/mountaine_house">MOUNTAINE HOUSE</Link></li>
@@ -28,6 +28,7 @@ const FooterMain = () => {
                         <li><Link to="/rent/villa">VILLA</Link></li>
                         <li><Link to="/rent/room">ROOM</Link></li>
                         <li><Link to="/rent/beach-house">BEACH HOUSE</Link></li>
+                        <li><Link to="/rent/other">OTHER</Link></li>
                     </ul>
                 </div>
                 <div className='column info'>
