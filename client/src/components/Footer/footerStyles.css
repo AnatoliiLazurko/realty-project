@@ -98,6 +98,10 @@ footer .company-name span {
     transition: 0.7s;
 }
 
+.footer-nav ul a.active {
+    color: #ff4d4f;
+}
+
 .footer-nav ul a:hover {
     color: #ff4d4f;
 }

@@ -6,6 +6,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 .navigation {
@@ -33,26 +34,57 @@ header {
 
 nav {
     margin-right: auto;
+    display: flex;
 }
 
-nav a {
+nav a, nav div {
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: #777;
     padding: 0 9px;
-    opacity: 0.6;
+    /* opacity: 0.6; */
     font-size: 17px;
     transition: 0.6s;
     font-weight: 500;
+    cursor: pointer;
 }
 
 nav a:hover {
-    color: #ff4d4f;;
-}
-
-nav a.active {
     color: #ff4d4f;
     opacity: 1;
+}
+
+nav a.active, nav div.active {
+    color: #ff4d4f;
+    opacity: 1;
+}
+
+.submenu {
+    position: absolute;
+    top: 45px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu a {
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    color: #ff4d4f;
+}
+
+.submenu p {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-top: 5px;
+    border-top: 2px solid #333;
 }
 
 header .login {
@@ -91,8 +123,4 @@ header .signup {
 header .signup:hover {
     background-color: #ff4d4f;
     color: white;
-}
-
-.buy {
-    width: 300px;
 }

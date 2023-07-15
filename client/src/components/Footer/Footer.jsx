@@ -22,7 +22,7 @@ const Footer = () => {
             
             <div className='social-media'>
                 <p>Follow us on social networks</p>
-                <a href="#instagram"><InstagramIcon /></a>
+                <a href="https://www.instagram.com/anatoliilazurko/"><InstagramIcon /></a>
                 <a href="#facebook"><FacebookIcon /></a>
                 <a href="#twitter"><TwitterIcon /></a>
                 <a href="#linkedin"><LinkedInIcon /></a>

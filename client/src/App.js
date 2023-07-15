@@ -16,7 +16,9 @@ function App() {
           <Route path="/buy/house" element={<Buy type='house' />} />
           <Route path="/buy/flat" element={<Buy type='flat' />} />
           <Route path="/buy/villa" element={<Buy type='villa' />} />
-          <Route path="/buy/room" element={<Buy type='room'/>} />
+          <Route path="/buy/room" element={<Buy type='room' />} />
+          
+          <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>
 

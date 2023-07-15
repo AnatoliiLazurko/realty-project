@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterForm from './FooterForm';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const FooterMain = () => {
     return (
@@ -9,26 +9,26 @@ const FooterMain = () => {
                 <div className='column nav'>
                     <h3>B u y</h3>
                     <ul>
-                        <li><Link to="/buy/house">HOUSE</Link></li>
-                        <li><Link to="/buy/new-house">NEW HOUSE</Link></li>
-                        <li><Link to="/buy/flat">FLAT</Link></li>
-                        <li><Link to="/buy/new-flat">NEW FLAT</Link></li>
-                        <li><Link to="/buy/villa">VILLA</Link></li>
-                        <li><Link to="/buy/storage">STORAGE</Link></li>
-                        <li><Link to="/buy/other">OTHER</Link></li>
+                        <li><NavLink to="/buy/house">HOUSE</NavLink></li>
+                        <li><NavLink to="/buy/new-house">NEW HOUSE</NavLink></li>
+                        <li><NavLink to="/buy/flat">FLAT</NavLink></li>
+                        <li><NavLink to="/buy/new-flat">NEW FLAT</NavLink></li>
+                        <li><NavLink to="/buy/villa">VILLA</NavLink></li>
+                        <li><NavLink to="/buy/storage">STORAGE</NavLink></li>
+                        <li><NavLink to="/buy/other">OTHER</NavLink></li>
                     </ul>
                 </div>
                 <div className='column nav nav-rent'>
                     <h3>R e n t</h3>
                     <ul>
-                        <li><Link to="/rent/house">HOUSE</Link></li>
-                        <li><Link to="/rent/mountaine_house">MOUNTAINE HOUSE</Link></li>
-                        <li><Link to="/rent/forest_house">FOREST HOUSE</Link></li>
-                        <li><Link to="/rent/flat">FLAT</Link></li>
-                        <li><Link to="/rent/villa">VILLA</Link></li>
-                        <li><Link to="/rent/room">ROOM</Link></li>
-                        <li><Link to="/rent/beach-house">BEACH HOUSE</Link></li>
-                        <li><Link to="/rent/other">OTHER</Link></li>
+                        <li><NavLink to="/rent/house">HOUSE</NavLink></li>
+                        <li><NavLink to="/rent/mountaine_house">MOUNTAINE HOUSE</NavLink></li>
+                        <li><NavLink to="/rent/forest_house">FOREST HOUSE</NavLink></li>
+                        <li><NavLink to="/rent/flat">FLAT</NavLink></li>
+                        <li><NavLink to="/rent/villa">VILLA</NavLink></li>
+                        <li><NavLink to="/rent/room">ROOM</NavLink></li>
+                        <li><NavLink to="/rent/beach-house">BEACH HOUSE</NavLink></li>
+                        <li><NavLink to="/rent/other">OTHER</NavLink></li>
                     </ul>
                 </div>
                 <div className='column info'>
