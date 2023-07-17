@@ -22,13 +22,18 @@ const realtySchema = new mongoose.Schema({
         require: [true, "Rooms is required"],
     },
     price: {
-        type: Number,
+        type: String,
         require: [true, "Price is required"],
     },
-    image: {
+    mainImage: {
         type: String,
         require: [true, "Image is required"],
     },
+    images: [{
+        type: String,
+        require: [true, "Image is required"],
+        unique: true
+    }],
     description: {
         type: String,
         require: [true, "Description is required"],
