@@ -94,6 +94,7 @@
     width: 100%;
     padding-right: 30px;
     height: 450px;
+    object-fit: cover;
 }
 
 .services .second img {
@@ -101,6 +102,7 @@
     width: 100%;
     padding-left: 30px;
     height: 450px;
+    object-fit: cover;
 }
 
 .first .about-service,

@@ -1,0 +1,63 @@
+.buy-main {
+    
+}
+
+.realty-list {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    margin-bottom: 130px;
+    padding: 0 20px;
+}
+
+.grid-field {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 30px 15px;
+}
+
+.card-realty {
+    width: 100%;
+}
+
+div.card-info {
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    transition: 0.5s;
+}
+
+div.card-info:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+div.card-info img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+div.about-realty {
+    padding: 0px 15px 5px 15px;
+}
+
+.about-realty p {
+    margin: 0;
+}
+
+.about-realty .title {
+    
+}
+
+.about-realty .price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-realty .square {
+
+}
+
+.about-realty .address {
+
+}

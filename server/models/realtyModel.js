@@ -36,6 +36,7 @@ const realtySchema = new mongoose.Schema({
     images: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'RealtyImage',
+        required: false
     }],
     description: {
         type: String,
