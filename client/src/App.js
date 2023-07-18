@@ -4,25 +4,26 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Buy from './components/Buy/Buy';
 import Footer from './components/Footer/Footer';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 function App() {
   return (
     <>
-      <Header />
+      <Provider store={store}>
+        <Header />
 
-      <div className='content'>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/buy/house" element={<Buy type='house' />} />
-          <Route path="/buy/flat" element={<Buy type='flat' />} />
-          <Route path="/buy/villa" element={<Buy type='villa' />} />
-          <Route path="/buy/room" element={<Buy type='room' />} />
-          
-          <Route path="*" element={<h1>Page Not Found</h1>} />
-        </Routes>
-      </div>
+        <div className='content'>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/buy/:category" element={<Buy />} />
+            
+            <Route path="*" element={<h1>Page Not Found</h1>} />
+          </Routes>
+        </div>
 
-      <Footer />
+        <Footer />
+      </Provider>
     </>
   );
 }

@@ -3,45 +3,50 @@ const mongoose = require('mongoose');
 const realtySchema = new mongoose.Schema({
     title: {
         type: String,
-        require: [true, "Title is required"],
+        required: [true, "Title is required"],
     },
     type: {
         type: String,
-        require: [true, "Type is required"],
+        required: [true, "Type is required"],
+    },
+    category: {
+        type: String,
+        required: [true, "Category is required"],
     },
     address: {
         type: String,
-        require: [true, "Address is required"],
+        required: [true, "Address is required"],
     },
     square: {
         type: Number,
-        require: [true, "Square is required"],
+        required: [true, "Square is required"],
     },
     rooms: {
         type: Number,
-        require: [true, "Rooms is required"],
+        required: [true, "Rooms is required"],
     },
     price: {
         type: String,
-        require: [true, "Price is required"],
+        required: [true, "Price is required"],
     },
     mainImage: {
         type: String,
-        require: [true, "Image is required"],
+        required: [true, "Image is required"],
     },
     images: [{
-        type: String,
-        require: [true, "Image is required"],
-        unique: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'RealtyImage',
     }],
     description: {
         type: String,
-        require: [true, "Description is required"],
+        required: [true, "Description is required"],
     },
     createdAt: {
         type: Date,
         default: new Date()
     }
 });
+
+realtySchema.index({ _id: 1, images: 1 }, { unique: true });
 
 module.exports = mongoose.model("Realty", realtySchema);

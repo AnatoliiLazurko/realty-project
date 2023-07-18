@@ -14,7 +14,7 @@ const Services = () => {
                 <div className='first'>
                     <img src={serviceOne} alt="" />
                     <div className='about-service'>
-                        <h1 class="service-title">BUY A REALTY</h1>
+                        <h1 className="service-title">BUY A REALTY</h1>
                         <p>
                             We understand that buying real estate is an important decision that affects your life and financial
                             situation. That's why we work with great attention to detail, follow transparent processes and
@@ -30,7 +30,7 @@ const Services = () => {
 
                 <div className='second'>
                     <div className='about-service'>
-                        <h1 class="service-title">RENT A REALTY</h1>
+                        <h1 className="service-title">RENT A REALTY</h1>
                         <p>
                             Whether you are looking for an apartment, house or commercial space for rent, we offer a wide range
                             of affordable properties to suit your needs and budget. Our team of experienced real estate
@@ -49,7 +49,7 @@ const Services = () => {
                 <div className='third'>
                     <img src={servicethree} alt="" />
                     <div className='about-service'>
-                        <h1 class="service-title">SELL YOUR REALTY</h1>
+                        <h1 className="service-title">SELL YOUR REALTY</h1>
                         <p>
                             As a leading real estate company, we are proud to offer our services to help you sell your property.
                             Whether you are selling a home, condo or commercial property, we have the knowledge, experience and

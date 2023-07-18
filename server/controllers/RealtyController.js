@@ -1,10 +1,11 @@
+const RealtyImage = require("../models/realtyImageModel");
 const Realty = require("../models/realtyModel");
 
 const addRealty = async (req, res) => {
     try {
-        const { title, type, address, square, rooms, price, mainImage, description } = req.body;
+        const { title, type, category, address, square, rooms, price, mainImage, description } = req.body;
     
-        const realty = new Realty({ title, type, address, square, rooms, price, mainImage, description });
+        const realty = new Realty({ title, type, category, address, square, rooms, price, mainImage, description });
 
         await realty.save();
 
@@ -18,17 +19,15 @@ const addRealty = async (req, res) => {
 const addImageToRealty = async (req, res) => {
     try {
         const realtyId = req.params.id;
-        const { image } = req.body;
+        const imageSrc  = req.body;
 
         const realty = await Realty.findById(realtyId);
         if (!realty) {
             return res.status(404).json({ message: 'Realty not found' });
         }
-        
-        const existingImage = await Realty.findOne({ images: image });
-        if (existingImage) {
-            return res.json({ message: 'Image already exist' });
-        }
+
+        const image = new RealtyImage({ image: imageSrc.image, realty: realty._id });
+        await image.save();
 
         realty.images.push(image);
         await realty.save();
@@ -48,10 +47,10 @@ const getRealty = async (req, res) => {
 const updateRealty = async (req, res) => {
     try {
         const realtyId = req.params.id;
-        const { title, type, address, square, rooms, price, mainImage, description } = req.body;
+        const { title, type, category, address, square, rooms, price, mainImage, description } = req.body;
         
         const realty = await Realty.findByIdAndUpdate(realtyId, {
-            title, type, address, square, rooms, price, mainImage, description
+            title, type, category, address, square, rooms, price, mainImage, description
         });
 
         if (!realty) {
@@ -81,4 +80,12 @@ const deleteRealty = async (req, res) => {
     }
 }
 
-module.exports = { addRealty,  getRealty, addImageToRealty, updateRealty, deleteRealty}
+const getRealtyByType = async (req, res) => {
+    const realtyType = req.params.type;
+
+    const realty = await Realty.find({ type: realtyType });
+
+    return res.json(realty);
+}
+
+module.exports = { addRealty,  getRealty, addImageToRealty, updateRealty, deleteRealty, getRealtyByType}
