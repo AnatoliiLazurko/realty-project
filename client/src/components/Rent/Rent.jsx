@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRealty } from '../realtySlice';
 import { useParams } from 'react-router-dom';
-import './realtyListStyles.css';
-import mainImage from '../../images/page-buy.jpg';
-import BuyRealties from './BuyRealties';
+import { fetchRealty } from '../realtySlice';
+import RentRealties from './RentRealties';
+import mainImage from '../../images/page-rent.jpg';
 
-const Buy = () => {
+const Rent = () => {
 
     const { category } = useParams();
     const realtyCategory = category.replace(/-/g, ' ');
@@ -14,7 +13,7 @@ const Buy = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchRealty('buy'));
+        dispatch(fetchRealty('rent'));
     }, [])
 
     const realty = useSelector((state) => state.realty.realty);
@@ -35,17 +34,17 @@ const Buy = () => {
     return (
         <>
             <div className='buy-main'>
-                <img src={mainImage} alt="Page buy image"/>
+                <img src={mainImage} alt="Page rent image"/>
                 <div className="overlay">
                     <h1>Discover your perfect realty</h1>
-                    <p>You are currently on the buy page in the <span>{realtyCategory}</span> category</p>
+                    <p>You are currently on the rent page in the <span>{realtyCategory}</span> category</p>
                 </div>
             </div>
             <div className='realty-list'>
                 
                 <div className='grid-field'>
                     {filteredRealty.map(item => (
-                        <BuyRealties key={item._id} realty={item} category={category} />
+                        <RentRealties key={item._id} realty={item} category={category} />
                     ))}
                 </div>
     
@@ -54,4 +53,4 @@ const Buy = () => {
     );
 }
 
-export default Buy;
+export default Rent;

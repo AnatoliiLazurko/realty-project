@@ -48,6 +48,4 @@ const realtySchema = new mongoose.Schema({
     }
 });
 
-realtySchema.index({ _id: 1, images: 1 }, { unique: true });
-
 module.exports = mongoose.model("Realty", realtySchema);

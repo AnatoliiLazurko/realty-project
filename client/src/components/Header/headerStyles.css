@@ -124,3 +124,66 @@ header .signup:hover {
     background-color: #ff4d4f;
     color: white;
 }
+
+.screen-dimming {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
+
+.modal {
+    position: fixed;
+    z-index: 30;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.modal-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+}
+
+.modal-form {
+    padding: 20px;
+}
+
+.close-modal {
+    float: right;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-modal i {
+    font-size: 22px;
+}
+
+.modal-company-name {
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #777;
+    margin-top: 20px;
+}
+
+.modal-company-name span {
+    color: #ff4d4f;
+}
