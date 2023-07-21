@@ -9,6 +9,7 @@ import { store } from './app/store';
 import BuyDetails from './components/Buy/BuyDetails';
 import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
+import PageNotExist from './components/PageNotExist';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
 
             <Route path='/sell' element={<Sell />} />
             
-            <Route path="*" element={<h1>Page Not Found</h1>} />
+            <Route path="*" element={<PageNotExist />}/>
           </Routes>
         </div>
 

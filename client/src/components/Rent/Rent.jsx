@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { fetchRealty } from '../realtySlice';
 import RentRealties from './RentRealties';
 import mainImage from '../../images/page-rent.jpg';
+import { Empty, Result, Spin } from 'antd';
 
 const Rent = () => {
 
@@ -21,11 +22,20 @@ const Rent = () => {
     const error = useSelector((state) => state.realty.error);
 
     if (isLoading) {
-        return '...loadign';
+        return  <div style={{ paddingBottom: '100px', paddingTop: '100px'}}>
+            <Spin tip="Loading" size="large">
+                <div className="content" />
+            </Spin>
+        </div>;
     }
 
     if (error) {
-        return error;
+        return <Result
+            status="500"
+            title="500"
+            subTitle="Sorry, something went wrong."
+            extra={<NavLink to='/' type="primary">Back Home</NavLink>}
+        />;
     }
 
 
@@ -42,6 +52,12 @@ const Rent = () => {
             </div>
             <div className='realty-list'>
                 
+                {filteredRealty.length === 0 && (
+                    <div style={{ paddingBottom: '100px', paddingTop: '50px' }}>
+                        <Empty />
+                    </div>
+                )}
+
                 <div className='grid-field'>
                     {filteredRealty.map(item => (
                         <RentRealties key={item._id} realty={item} category={category} />

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRealty } from '../realtySlice';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import './realtyListStyles.css';
 import mainImage from '../../images/page-buy.jpg';
 import BuyRealties from './BuyRealties';
+import { Empty, Result, Spin } from 'antd';
+import { DialogContent } from '@mui/material';
 
 const Buy = () => {
 
@@ -22,13 +24,21 @@ const Buy = () => {
     const error = useSelector((state) => state.realty.error);
 
     if (isLoading) {
-        return '...loadign';
+        return  <div style={{ paddingBottom: '100px', paddingTop: '100px'}}>
+            <Spin tip="Loading" size="large">
+                <div className="content" />
+            </Spin>
+        </div>;
     }
 
     if (error) {
-        return error;
+        return <Result
+            status="500"
+            title="500"
+            subTitle="Sorry, something went wrong."
+            extra={<NavLink to='/' type="primary">Back Home</NavLink>}
+        />;
     }
-
 
     const filteredRealty = realty.filter(item => item.category === realtyCategory);
 
@@ -43,6 +53,12 @@ const Buy = () => {
             </div>
             <div className='realty-list'>
                 
+                {filteredRealty.length === 0 && (
+                    <div style={{ paddingBottom: '100px', paddingTop: '50px' }}>
+                        <Empty />
+                    </div>
+                )}
+
                 <div className='grid-field'>
                     {filteredRealty.map(item => (
                         <BuyRealties key={item._id} realty={item} category={category} />

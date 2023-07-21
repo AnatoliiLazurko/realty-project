@@ -5,6 +5,7 @@ const cors = require('cors');
 const { PORT, MONGO_URL } = process.env;
 
 const RealtyRouter = require('./routes/realty-router');
+const UserRouter = require('./routes/user-router');
 
 mongoose.connect(MONGO_URL)
     .then(() => console.log('MongoDB connected'))
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', RealtyRouter);
+app.use('/api', UserRouter);
 
 app.listen(PORT, () => {
     console.log('Server is running');

@@ -9,7 +9,7 @@ const Sell = () => {
     return (
         <div>
             <div className='buy-main'>
-                <img src={mainImage} alt="Your Image"/>
+                <img src={mainImage} alt="Page sell image" />
                 <div className="overlay">
                     <h1>Explore different ways to sell your home</h1>
                     <p>Get your home's value and see selling options</p>
