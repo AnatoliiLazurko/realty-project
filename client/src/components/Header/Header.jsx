@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './headerStyles.css';
 import { NavLink } from 'react-router-dom';
-import Login from '../Login/Login';
-import Signup from '../Signup/Signup';
 import LoginModal from '../Login/LoginModal';
 import SignupModal from '../Signup/SignupModal';
 import { ToastContainer } from 'react-toastify';

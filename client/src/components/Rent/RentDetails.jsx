@@ -2,10 +2,11 @@ import { Carousel } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import './detailsStyles.css';
-import DetailsForm from './DetailsForm';
+import '../Buy/detailsStyles.css';
+import DetailsForm from '../Buy/DetailsForm';
 
-const BuyDetails = () => {
+
+const RentDetails = () => {
 
     const { id, category } = useParams();
     const [images, setImages] = useState([]);
@@ -49,7 +50,7 @@ const BuyDetails = () => {
         <div className='details-page'>
             <div className='nav-back'>
                 <Link to={`/buy/${category}`}><i className='fa fa-long-arrow-left'></i>Back to search</Link>
-                <p>For Buy <i className='fa fa-angle-right'></i> {category}</p>
+                <p>For Rent <i className='fa fa-angle-right'></i> {category}</p>
             </div>
             <div style={{ position: 'relative' }}>
                 <Carousel
@@ -92,4 +93,4 @@ const BuyDetails = () => {
     );
 }
 
-export default BuyDetails;
+export default RentDetails;

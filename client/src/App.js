@@ -11,6 +11,7 @@ import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
 import PageNotExist from './components/PageNotExist';
 import { AuthProvider } from './contexts/AuthContext';
+import RentDetails from './components/Rent/RentDetails';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path='/buy/:category/:id/details' element={<BuyDetails />} />
 
               <Route path="/rent/:category" element={<Rent />} />
+              <Route path='/rent/:category/:id/details' element={<RentDetails />} />
 
               <Route path='/sell' element={<Sell />} />
               
