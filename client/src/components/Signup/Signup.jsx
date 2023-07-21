@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './signupStyles.css';
+import useAuth from '../../hooks/useAuth';
 
 const initialValues = {
     email: '',
@@ -18,12 +19,22 @@ const SIGNUP_SCHEMA = Yup.object().shape({
 
 const Signup = ({ onClose, openLogin }) => {
 
+    const { register } = useAuth();
+
     const openLoginModal = () => {
         onClose();
         openLogin();
     }
 
     const submitHandler = (values, formikBag) => {
+        try {
+            register({ email: values.email, password: values.password, username: values.username });
+            onClose();
+        }
+        catch (error) {
+            console.log(error);
+        }
+
         formikBag.resetForm();
     }
 
@@ -63,9 +74,9 @@ const Signup = ({ onClose, openLogin }) => {
                     
                     <div className='signup-with'>
                         <hr />
-                        <button className='with-google'>Continue with Google <i class="fa fa-google"></i></button>
-                        <button className='with-facebook'>Continue with FaceBook <i class="fa fa-facebook"></i></button>
-                        <button className='with-apple'>Continue with Apple <i class="fa fa-apple"></i></button>
+                        <button className='with-google'>Continue with Google <i className="fa fa-google"></i></button>
+                        <button className='with-facebook'>Continue with FaceBook <i className="fa fa-facebook"></i></button>
+                        <button className='with-apple'>Continue with Apple <i className="fa fa-apple"></i></button>
                     </div>
                 </Form>
             </Formik>

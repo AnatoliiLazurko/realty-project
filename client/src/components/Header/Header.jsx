@@ -5,11 +5,15 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import LoginModal from '../Login/LoginModal';
 import SignupModal from '../Signup/SignupModal';
+import { ToastContainer } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [isModalLoginOpen, setModalLoginOpen] = useState(false);
     const [isModalSignOpen, setModalSignOpen] = useState(false);
+
+    const { isAuth, logout } = useAuth();
 
     const handleOpenLoginModal = () => {
         setModalLoginOpen(true);
@@ -93,14 +97,22 @@ const Header = () => {
                         <NavLink to="/sell">Sell</NavLink>
                     </nav>
                     <div>
-                        <button onClick={handleOpenLoginModal} className='login'>Log in</button>
-                        <button onClick={handleOpenSignModal} className='signup'>Sign up</button>
+                        {
+                            isAuth ? <NavLink to="/" onClick={logout}>Logout</NavLink>
+                        :
+                            <>
+                                <button onClick={handleOpenLoginModal} className='login'>Log in</button>
+                                <button onClick={handleOpenSignModal} className='signup'>Sign up</button>
+                            </>
+                        }
                     </div>
                 </div>
             </header>
 
             <LoginModal isOpen={isModalLoginOpen} onClose={handleCloseLoginModal} openSign={handleOpenSignModal} />
             <SignupModal isOpen={isModalSignOpen} onClose={handleCloseSignModal} openLogin={handleOpenLoginModal} />
+
+            <ToastContainer></ToastContainer>
         </>
 
     );

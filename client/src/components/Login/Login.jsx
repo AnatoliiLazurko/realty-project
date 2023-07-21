@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
 import './loginStyles.css';
+import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 const initialValues = {
@@ -17,12 +18,22 @@ const LOGIN_SCHEMA = Yup.object().shape({
 
 const Login = ({ onClose, openSign }) => {
 
+    const { login } = useAuth();
+
     const openSignModal = () => {
         onClose();
         openSign();
     }
 
     const submitHandler = (values, formikBag) => {
+        try {
+            login({ email: values.email, password: values.password });
+            onClose();
+        }
+        catch (error) {
+            console.log(error);
+        }
+
         formikBag.resetForm();
     }
 

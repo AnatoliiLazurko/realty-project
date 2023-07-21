@@ -10,29 +10,32 @@ import BuyDetails from './components/Buy/BuyDetails';
 import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
 import PageNotExist from './components/PageNotExist';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   return (
     <>
       <Provider store={store}>
-        <Header />
+        <AuthProvider>
+          <Header />
 
-        <div className='content'>
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <div className='content'>
+            <Routes>
+              <Route path="/" element={<Home />} />
 
-            <Route path="/buy/:category" element={<Buy />} />
-            <Route path='/buy/:category/:id/details' element={<BuyDetails />} />
+              <Route path="/buy/:category" element={<Buy />} />
+              <Route path='/buy/:category/:id/details' element={<BuyDetails />} />
 
-            <Route path="/rent/:category" element={<Rent />} />
+              <Route path="/rent/:category" element={<Rent />} />
 
-            <Route path='/sell' element={<Sell />} />
-            
-            <Route path="*" element={<PageNotExist />}/>
-          </Routes>
-        </div>
+              <Route path='/sell' element={<Sell />} />
+              
+              <Route path="*" element={<PageNotExist />}/>
+            </Routes>
+          </div>
 
-        <Footer />
+          <Footer />
+        </AuthProvider>
       </Provider>
     </>
   );
