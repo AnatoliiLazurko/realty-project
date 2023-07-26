@@ -5,6 +5,7 @@ import LoginModal from '../Login/LoginModal';
 import SignupModal from '../Signup/SignupModal';
 import { ToastContainer } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Header = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
@@ -96,7 +97,7 @@ const Header = () => {
                     </nav>
                     <div>
                         {
-                            isAuth ? <NavLink to="/" onClick={logout}>Logout</NavLink>
+                            isAuth ? <NavLink to="/" onClick={logout} className='logout'><LogoutIcon /></NavLink>
                         :
                             <>
                                 <button onClick={handleOpenLoginModal} className='login'>Log in</button>

@@ -65,6 +65,7 @@ export const AuthProvider = ({ children }) => {
             const res = await axios.post('http://localhost:4000/api/login', { email, password });
             localStorage.setItem('token', res.data.token);
             await getUser();
+            toast(res.data.message);
         }
         catch (error) { 
             toast(error.response.data.message);

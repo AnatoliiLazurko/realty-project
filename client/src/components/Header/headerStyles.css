@@ -125,6 +125,13 @@ header .signup:hover {
     color: white;
 }
 
+header .logout svg {
+    text-decoration: none;
+    color: #777;
+    width: 26px;
+    height: 26px;
+}
+
 .screen-dimming {
     position: fixed;
     top: 0;

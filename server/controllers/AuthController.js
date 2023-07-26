@@ -21,13 +21,12 @@ const login = async (req, res) => {
         user: {
             id: user.id
         },
-
     },
         process.env.JWT_SECRET,
         { expiresIn: '7 days' },
         (err, token) => {
             if (err) throw err;
-            res.json({ token })
+            res.json({ token, message: `Welcome ${user.username} !` })
         }
     );
 }

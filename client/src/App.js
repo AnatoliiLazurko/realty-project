@@ -12,6 +12,7 @@ import Sell from './components/Sell/Sell';
 import PageNotExist from './components/PageNotExist';
 import { AuthProvider } from './contexts/AuthContext';
 import RentDetails from './components/Rent/RentDetails';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
 
               <Route path='/sell' element={<Sell />} />
               
-              <Route path="*" element={<PageNotExist />}/>
+              <Route path="*" element={<PageNotExist />} />
             </Routes>
           </div>
 
